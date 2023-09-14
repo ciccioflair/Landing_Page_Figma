@@ -23,6 +23,8 @@ body {
 
 /* Typography */
 
+
+
 a, h2, button {
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -34,11 +36,37 @@ h1 {
   color: var(--big-text);
   margin-bottom: -1.5rem;
   letter-spacing: -2px;
+  animation: myAnimH1 2s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnimH1 {
+	0% {
+		opacity: 0;
+		transform: scale(0.6);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
 }
 
 h2 {
   font-weight: 300;
   color: var(--text);
+  animation: myAnimH2 2s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnimH2 {
+	0% {
+		opacity: 0;
+		transform: translateX(-50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
 }
 
 
@@ -75,6 +103,16 @@ ul {
     border-top: 2px solid var(--line);
     z-index: -2;
 }
+
+.hamburger {
+    display: none;
+    z-index: 2;
+}
+
+.menu {
+    transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
 
 /* Main */
 
@@ -177,12 +215,15 @@ button:hover, .button:active {
 
 /* LOGO & Animation */
 
+
+
 .wrapper-shapes {
     display: flex;
     gap: .75rem;
     justify-content: center;
     height: inherit;
     align-items: center;
+    z-index: 3;
 }
 
 .square {
@@ -262,7 +303,7 @@ button:hover, .button:active {
         overflow: hidden;
     }
 
-    nav {
+    .button-nav {
         display: none;
     }
 
@@ -287,6 +328,66 @@ button:hover, .button:active {
     .small-image {
         border-top: 1rem solid white;
         border-left: 1rem solid white;
+    }
+
+    .menu {
+        position: absolute;
+        top: 0;
+        right: -200%;
+        background: white;
+        height: 100vh;
+        padding-top: 80px;
+        z-index: 1;
+    }
+    .menu li {
+        display: block;
+    }
+
+    .menu--open {
+        right: 0%;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        opacity: 1;
+    }
+
+    .hamburger {
+        display: block;
+        width: 30px;
+        height: 30px;
+        margin-top: 15px;
+    }
+
+    .hamburger span {
+        background: #000;
+        height: 3px;
+        width: 100%;
+        display: block;
+        margin-bottom: 6px;
+        transition: all .5s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    .hamburger #bar1.change {
+    transform: translateY(6px) rotateZ(-45deg);
+}
+
+    .hamburger #bar2.change {
+        opacity: 0;
+    }
+
+    .hamburger #bar3.change {
+        transform: translateY(-12px) rotateZ(45deg);
+    }
+
+
+    a {
+        font-size: 1.2rem;
+    }
+
+    h1, h2 { 
+        color: #000;
+        text-shadow: 4px 4px 6px white;
     }
 
 }
