@@ -156,8 +156,9 @@ a, li {
     transition: all .3s ease-in-out;
 }
 
-a:active {
+a:active, li:active {
     font-weight: bolder;
+    color: var(--blue);
 }
 
 a:hover, li:hover {
@@ -218,7 +219,7 @@ button:hover, .button:active {
 }
 
 .wrapper-shapes:hover .circle {
-    animation: clipRotateAnim2 2s linear infinite;
+    animation: gelatine 0.5s infinite;
 }
 
 @keyframes clipRotateAnim {
@@ -227,11 +228,66 @@ button:hover, .button:active {
     }
 }
 
-@keyframes clipRotateAnim2 {
-    0%   { transform: translateY(0); }
-    50%  { transform: translateY(-20px); }
-    100% { transform: translateY(0); }
+@keyframes gelatine {
+    from, to { transform: scale(1, 1); }
+    25% { transform: scale(0.9, 1.1); }
+    50% { transform: scale(1.1, 0.9); }
+    75% { transform: scale(0.95, 1.05); }
+  }
+
+
+/* MOBILE version & media queries */
+
+@media screen and (max-width: 1280px) {
+
+    .wrapper-main {
+        margin-left: 3rem;
+    }
+
 }
 
+@media screen and (max-width: 1080px) {
+
+    .wrapper-main {
+        transform-origin: left;
+        scale: 70%;
+    }
+
+}
+
+@media (max-width: 880px) {
+
+    * {
+        overflow: hidden;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .wrapper-image::after {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, .75) 45%, rgba(255, 255, 255, 0) 65%);
+    }
+
+    .wrapper-main {
+        margin-top: 3rem;
+        max-width: 70%;
+    }
+
+    .wrapper-main {
+        transform-origin: top left;
+        scale: 70%;
+    }
+
+    .big-image {
+        min-width: fit-content;
+    }
+
+    .small-image {
+        border-top: 1rem solid white;
+        border-left: 1rem solid white;
+    }
+
+}
 
 
