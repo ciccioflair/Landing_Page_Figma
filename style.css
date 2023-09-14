@@ -257,7 +257,7 @@ button:hover, .button:active {
 
 @media (max-width: 880px) {
 
-    * {
+    .wrapper {
         overflow: hidden;
     }
 
