@@ -156,8 +156,9 @@ a, li {
     transition: all .3s ease-in-out;
 }
 
-a:active, li:active {
+a:active, li:active, li:active {
     font-weight: bolder;
+    color: var(--blue);
     color: var(--blue);
 }
 
